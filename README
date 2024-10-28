@@ -1,1 +1,38 @@
+----- USAGE -----
 
+Swagger API accessible from: http://localhost:5000/swagger/index.html 
+
+A sequence of endpoint calls should be followed. This is the expected order:
+
+STEP 1 - Create four teams (POST /api/teams):
+
+[
+	{
+	  "name": "A",
+	  "strength": 0
+	},
+	{
+	  "name": "B",
+	  "strength": 30
+	},
+	{
+	  "name": "C",
+	  "strength": 70
+	},
+	{
+	  "name": "D",
+	  "strength": 100
+	}
+]
+
+STEP 2 - Matchmaking  (POST /api/matchCreation): automatically generates the 6 matches of the group stage.
+
+STEP 3 - Simulate  (POST /api/simulation)
+
+STEPS 4 & 5 - Get final standings (GET /api/standings) or qualified teams (GET /api/teamsQualifiedForKnockoutStage)
+
+
+ ----- ADDITIONAL NOTES -----
+
+- DELETE /api/simulation can be used to reuse the same teams for another simulation. STEP 2 should be executed next.
+- Stores teams and matches can be accesed anytime from the corresponding GET endpoints.
